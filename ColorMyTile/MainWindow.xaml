@@ -1,0 +1,33 @@
+﻿<Window x:Class="ColorMyTile.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ColorMyTile"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="301.24" Width="800">
+    <Grid>
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="ProgramListBox" HorizontalAlignment="Left" Height="196" Margin="10,35,0,0" VerticalAlignment="Top" Width="333" Drop="ProgramListBox_Drop" AllowDrop="True" SelectionChanged="ProgramListBox_SelectionChanged" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="32" Width="32" Source="{Binding Icon}"></Image>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Title}"></TextBlock>
+                            <TextBlock Text="{Binding Path}" Foreground="#FF919191"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListView>
+        <Label Content="Program" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <xctk:ColorPicker x:Name="BGColorPicker" Margin="453,35,36,210"/>
+        <Label Content="Background" HorizontalAlignment="Left" Margin="369,35,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="LightTextCheckBox" Content="Light Text" HorizontalAlignment="Left" Margin="372,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.679,-2.48" IsChecked="True"/>
+        <Button x:Name="ApplyButton" Content="Apply" HorizontalAlignment="Left" Margin="681,217,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" IsEnabled="False"/>
+        <Button x:Name="AddProgramButton" Content="Add" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="75" Click="AddProgramButton_Click"/>
+        <Label x:Name="ApplyForLabel" Content="Nothin seleted" HorizontalAlignment="Left" Height="63" Margin="372,128,0,0" VerticalAlignment="Top" Width="384"/>
+
+    </Grid>
+</Window>
